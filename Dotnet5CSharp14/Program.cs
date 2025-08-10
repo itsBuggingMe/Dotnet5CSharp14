@@ -5,7 +5,6 @@ namespace Dotnet5CSharp14;
 internal partial class CSharp13
 {
     static void Main(string[] args) { }
-    public void SpanParams(params ReadOnlySpan<int> ints) { }
     public void IEnumerableParams(params IEnumerable<int> ints) { }
     public partial string PartialProp { get; }
     public partial string PartialProp => "Impl";
@@ -18,7 +17,7 @@ internal class CSharp12(int x)
     public int[] CollectionExpr = [1, 2, 3];
     public void MoreCollExpr()
     {
-        Span<int> ints = [1, 2, 3];
+        IEnumerable<int> ints = [1, 2, 3];
         IEnumerable<int> ints2 = [1, 2, 3];
         int[] moreInts = [.. ints, .. ints2];
     }
@@ -35,11 +34,6 @@ file class CSharp11
         Hello, World
         Newlines here.
         """;
-
-    public static void ScopedRefAndLocalVariables(scoped ref int x)
-    {
-        scoped Span<int> s = stackalloc int[10];
-    }
 }
 
 internal class CSharp10
